@@ -13,6 +13,9 @@ class HealthResponse(BaseModel):
 async def root():
     return {"message": "Welcome to FastAPI on EKS"}
 
+@app.get("/weather")
+async def get_weather():
+    return {"location": "EKS", "temperature": "22°C", "condition": "Sunny"}
 
 @app.get("/health", response_model=HealthResponse)
 async def health_check():
